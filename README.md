@@ -1,4 +1,4 @@
-# FristProject
+﻿# 3D-Action-Game
 
 A 3D game prototype built with **Unreal Engine 5.6**, focused on learning and experimenting with gameplay using **Blueprints**. The project currently includes a playable character, enemies, attack and health systems, interactive actors, and prototype gameplay content.
 
@@ -39,20 +39,20 @@ A 3D game prototype built with **Unreal Engine 5.6**, focused on learning and ex
 
 ```text
 FristProject/
-??? Config/
-?   ??? DefaultEngine.ini
-?   ??? DefaultGame.ini
-?   ??? DefaultInput.ini
-??? Content/
-?   ??? AI/                 # AI controllers
-?   ??? Bluprints/          # Main gameplay Blueprints
-?   ??? Components/         # Attack and health components
-?   ??? Controllers/        # Player controllers
-?   ??? LevelPrototyping/   # Interactive actors and prototype content
-?   ??? ParagonCrunch/      # Crunch character, animation, audio, and VFX assets
-?   ??? StarterContent/     # Unreal Engine sample content
-?   ??? ThirdPerson/        # Third-person sample content
-??? FristProject.uproject
+├── Config/
+│   ├── DefaultEngine.ini
+│   ├── DefaultGame.ini
+│   └── DefaultInput.ini
+├── Content/
+│   ├── AI/                 # AI controllers
+│   ├── Bluprints/          # Main gameplay Blueprints
+│   ├── Components/         # Attack and health components
+│   ├── Controllers/        # Player controllers
+│   ├── LevelPrototyping/   # Interactive actors and prototype content
+│   ├── ParagonCrunch/      # Crunch character, animation, audio, and VFX assets
+│   ├── StarterContent/     # Unreal Engine sample content
+│   └── ThirdPerson/        # Third-person sample content
+└── FristProject.uproject
 ```
 
 ## Getting Started
