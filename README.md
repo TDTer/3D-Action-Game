@@ -1,6 +1,6 @@
 ﻿# 3D Melee Action Game
 
-![Game Demo](demoimages/ImgameEditor.png)
+![Game Demo](DemoImages/ImgameEditor.png)
 
 A 3D melee action game prototype developed with **Unreal Engine 5.6** and **Blueprint Visual Scripting**. The project focuses on building a complete melee gameplay loop, including player controls, camera switching, combo attacks, enemy AI, HUD, SFX, and VFX.
 
