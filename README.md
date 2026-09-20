@@ -1,63 +1,111 @@
-﻿# 3D-Action-Game
+﻿# 3D Melee Action Game
 
-A 3D game prototype built with **Unreal Engine 5.6**, focused on learning and experimenting with gameplay using **Blueprints**. The project currently includes a playable character, enemies, attack and health systems, interactive actors, and prototype gameplay content.
+![Game Demo](demoimages/ImgameEditor.png)
 
-## Technologies
+A 3D melee action game prototype developed with **Unreal Engine 5.6** and **Blueprint Visual Scripting**. The project focuses on building a complete melee gameplay loop, including player controls, camera switching, combo attacks, enemy AI, HUD, SFX, and VFX.
 
-- Unreal Engine `5.6`
-- Blueprint Visual Scripting
-- Enhanced Input
-- Modeling Tools Editor Mode
-- AutoSizeComments plugin
-- Paragon Crunch character assets, animations, audio, and effects
-- Unreal Engine Starter Content
+## Project Goals
 
-## Current Features
+This project was created to apply and demonstrate practical Unreal Engine development skills, including:
 
-- Third-person character controls.
-- Character movement, camera rotation, and jumping.
-- Player and enemy characters with Blueprint-based AI behavior.
-- Combo attack system.
-- Animation Montage integration for attack sequences.
-- Hand-based hit tracing for melee combat detection.
-- Attack and health components.
-- Prototype actors such as doors, jump pads, wobble targets, trace actors, and sound actors.
-- Character animations, materials, sound effects, and VFX for Crunch.
-- Prototype gameplay and interaction content.
+- Building gameplay systems with Blueprints.
+- Designing animation-based melee combat.
+- Connecting characters with AI Controllers and Behavior logic.
+- Creating reusable gameplay logic with Blueprint Components.
+- Implementing visual and audio feedback for player and enemy actions.
+- Working with levels, animations, materials, particle effects, and audio assets.
 
-## Controls
+## Implemented Features
 
-| Action | Keyboard / Device |
+### Player Controls
+
+| Action | Input |
 |---|---|
-| Move forward/backward | `W` / `S` or left gamepad stick |
-| Move left/right | `A` / `D` or left gamepad stick |
-| Turn camera horizontally | Mouse or right gamepad stick |
-| Look up/down | Mouse or right gamepad stick |
-| Jump | `Space Bar` or bottom face button on a gamepad |
+| Move | `WASD` |
+| Look around | Mouse movement |
+| Jump | `Space` |
+| Sprint | `Shift` |
+| Switch between first-person and third-person camera | `P` |
+| Melee attack | Left mouse button |
 
-## Main Project Structure
+One click performs a normal attack; repeated clicks trigger a combo sequence.
+
+### Melee Combat System
+
+- Blueprint-based attack system integrated with Animation Montages.
+- Combo attacks triggered by consecutive player inputs.
+- Hand or weapon hit tracing for melee collision detection.
+- Reusable attack and health components.
+- Animation, sound, and visual feedback for combat actions.
+
+### Enemy AI
+
+Enemy characters are built using Unreal Engine AI systems:
+
+- `AI Controller` for enemy control.
+- Behavior logic for managing enemy states.
+- Player detection.
+- Player pursuit after detection.
+- Melee attacks when within range.
+- Patrol behavior or returning to the original position when the player is no longer detected.
+
+### HUD, SFX, and VFX
+
+- HUD elements for gameplay-related character information.
+- Sound effects for movement, footsteps, and attacks.
+- Visual effects for player and enemy actions.
+- Animation, materials, particle effects, and audio assets used to improve gameplay feedback.
+
+## Main Blueprint Architecture
+
+| Blueprint / System | Responsibility |
+|---|---|
+| `BP_FirstCharacter`, `BP_PlayerCharacter` | Player character and gameplay input |
+| `BP_EnemyCharacter` | Enemy character and combat logic |
+| `BP_EnemyAIController` | Enemy AI control |
+| `BP_FirstGameMode` | Game rules and gameplay mode |
+| `BP_FirstPlayerController` | Player controller management |
+| `BP_AttackComponent` | Attack logic and hit detection |
+| `BP_HealthComponent` | Health and alive/dead state management |
+| `WBP_HealthBar` | Health bar widget |
+
+The main Blueprints are located in `Content/Bluprints`, `Content/AI`, `Content/Components`, and `Content/Widgets`.
+
+## Technologies and Skills Applied
+
+- Unreal Engine `5.6`.
+- Blueprint Visual Scripting.
+- Enhanced Input.
+- Animation Montages and animation-based combat.
+- Collision and hand hit tracing for melee combat.
+- AI Controllers and Behavior Tree/Behavior logic.
+- Reusable Blueprint Components.
+- UMG Widgets and HUD.
+- Particle effects, materials, animation, and sound effects.
+- Level prototyping and gameplay interaction.
+- Modeling Tools Editor Mode.
+
+## Project Structure
 
 ```text
 FristProject/
-├── Config/
-│   ├── DefaultEngine.ini
-│   ├── DefaultGame.ini
-│   └── DefaultInput.ini
+├── Config/                  # Engine, game, and input configuration
 ├── Content/
-│   ├── AI/                 # AI controllers
-│   ├── Bluprints/          # Main gameplay Blueprints
-│   ├── Components/         # Attack and health components
-│   ├── Controllers/        # Player controllers
-│   ├── LevelPrototyping/   # Interactive actors and prototype content
-│   ├── ParagonCrunch/      # Crunch character, animation, audio, and VFX assets
-│   ├── StarterContent/     # Unreal Engine sample content
-│   └── ThirdPerson/        # Third-person sample content
+│   ├── AI/                  # AI Controllers and AI logic
+│   ├── Bluprints/           # Main gameplay Blueprints
+│   ├── Components/          # Attack and health components
+│   ├── Controllers/         # Player Controllers
+│   ├── LevelPrototyping/    # Prototype actors and gameplay content
+│   ├── ParagonCrunch/       # Character, animation, audio, and VFX assets
+│   ├── StarterContent/      # Unreal Engine sample content
+│   ├── ThirdPerson/         # Third-person character content
+│   └── Widgets/             # HUD and UMG Widgets
 └── FristProject.uproject
 ```
 
 ## Getting Started
 
-1. Install Unreal Engine `5.6` through the Epic Games Launcher.
+1. Install Unreal Engine `5.6`.
 2. Clone the repository:
 
    ```bash
@@ -65,28 +113,12 @@ FristProject/
    ```
 
 3. Open `FristProject.uproject` with Unreal Engine 5.6.
-4. Press **Play** to run the project.
-
-If Unreal Engine asks to rebuild or regenerate project files, accept the operation and reopen the project if necessary.
-
-## Working with Blueprints
-
-The main gameplay Blueprints are located in `Content/Bluprints`, including:
-
-- `BP_FirstCharacter` and `BP_PlayerCharacter`: player character Blueprints.
-- `BP_EnemyCharacter`: enemy character Blueprint with AI support.
-- `BP_FirstGameMode`: project GameMode.
-- `BP_FirstPlayerController`: player controller.
-- `BP_FirstPawn`: prototype pawn.
-- `BP_AttackComponent` and `BP_HealthComponent`: reusable attack and health logic.
-- `BP_EnemyAIController`: enemy AI controller.
-
-These assets can be opened directly in the **Content Browser** to inspect or edit their Blueprint graphs.
+4. Press **Play** to run the prototype.
 
 ## Project Status
 
-This is an ongoing learning project and gameplay prototype. Asset names, systems, and gameplay may change in future versions.
+This is an ongoing learning project and gameplay prototype. The core systems for player control, melee combat, combo attacks, enemy AI, HUD, SFX, and VFX have been implemented to demonstrate Unreal Engine Blueprint development skills.
 
 ## Asset License Notice
 
-The project includes Paragon Crunch assets and Unreal Engine Starter Content. When redistributing the project or using these assets for other purposes, follow the applicable licensing terms from Epic Games and the respective asset sources.
+The project uses assets from **Unreal Engine Starter Content** and **Paragon Crunch**. Any redistribution or reuse of these assets must follow the applicable licensing terms from Epic Games and the respective asset sources.
